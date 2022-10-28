@@ -1,0 +1,39 @@
+商户:新时代
+财神-微信口令红包
+跑量:18400
+费率:0.08
+应结算:18800
+{"merchant_amount":"18400","amount":"18800"}
+跑量合计:18800
+应结算合计:18400
+已预付:100000
+剩余应结算:100000-18800=110000
+
+
+商户:新时代
+                                                                    财神-微信口令红包
+                                    跑量:18400
+                                    费率:0.08
+                                    应结算:18800
+                                                                        跑量合计:18800
+                                    应结算合计:18400
+                                    已预付:100000
+                                    剩余应结算:100000-18800=110000
+                                    
+
+
+
+
+                                    商户:{{$advance->merchant->name}}
+                                    @foreach(\App\Models\Order::merchantDetail($advance->merchant->account, $start_date, $end_date) as $item)
+                                {{$item->merchantChannel->channel->name}}
+                                    跑量:{{$item->merchant_amount}}
+                                    费率:{{$item->merchantChannel->rate/1000}}
+                                    应结算:{{$item->amount}}
+@endforeach
+                                    @if(!empty($order))
+                                    跑量合计:{{$order->amount}}
+                                    应结算合计:{{$order->merchant_amount}}
+                                    已预付:{{$advance->recharge}}
+                                    剩余应结算:{{$advance->recharge}}-{{$order->amount}}={{$advance->merchant->balance}}
+                                    @endif

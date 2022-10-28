@@ -1,0 +1,11 @@
+.monitor-box {
+    border-bottom: 1px solid #d5d4d4;
+    padding: 10px 0;
+}
+.monitor-box .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.monitor-box .amount {
+    margin-left: 30px;
+}

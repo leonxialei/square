@@ -1,0 +1,104 @@
+{
+    "clearInfo": {
+        "clearUrl": "api\/clear.json"
+    },
+    "homeInfo": {
+        "title": "控制台",
+        "icon": "fa fa-home",
+        "href": "home/console"
+    },
+    "logoInfo": {
+        "title": "后台管理",
+        "image": "images\/logo.png",
+        "href": ""
+    },
+    "menuInfo": {
+        "currency": {
+            "title": "后台管理",
+            "icon": "fa fa-address-book",
+            "child": [{
+                "title": "控制台",
+                "href": "home/console",
+                "icon": "fa fa-home",
+                "target": "_self"
+            },{
+                "title": "区间分析",
+                "href": "analyze",
+                "icon": "fa fa-bar-chart-o",
+                "target": "_self"
+                },{
+                "title": "商户管理",
+                "href": "merchant",
+                "icon": "fa fa-users",
+                "target": "_self",
+                "child": [
+                    {
+                        "title": "商户管理",
+                        "href": "merchant",
+                        "target": "_self"
+                    },
+                    {
+                        "title": "商户预付",
+                        "href": "advance",
+                        "target": "_self"
+                    },
+                    {
+                        "title": "商户提现",
+                        "href": "home/total",
+                        "target": "_self"
+                    }
+                ]
+
+            }, {
+                "title": "通道管理",
+                "href": "upstream/advance",
+                "icon": "fa fa-suitcase",
+                "target": "_self",
+                "child": [
+                    {
+                        "title": "通道预付",
+                        "href": "upstream/advance",
+                        "target": "_self"
+                    },
+                    {
+                        "title": "分配通道",
+                        "href": "upstream",
+                        "target": "_self"
+                    },
+                    {
+                        "title": "通道整合",
+                        "href": "home/total",
+                        "target": "_self"
+                    }
+                ]
+            }, {
+                "title": "订单查询",
+                "href": "order",
+                "icon": "fa fa-tasks",
+                "target": "_self"
+            }, {
+                "title": "分析",
+                "href": "order/statistics",
+                "icon": "fa fa-laptop",
+                "target": "_self"
+            },
+            {
+                "title": "上游列表",
+                "href": "/list/upstream",
+                "icon": "fa fa-child",
+                "target": "_self"
+            },
+                {
+                "title": "通道管理",
+                "href": "channel",
+                "icon": "fa fa-road",
+                "target": "_self"
+            }, {
+                "title": "编码管理",
+                "href": "channel\/code",
+                "icon": "fa fa-tasks",
+                "target": "_self"
+            }]
+        }
+    }
+}

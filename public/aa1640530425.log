@@ -1,0 +1,9 @@
+Array
+(
+    [client_id] => 80017
+    [out_trade_no] => 2021373124342
+    [total_fee] => 20000
+    [channel_code] => 8001
+    [notify_url] => http://localhostapi/pay/notify
+    [sign] => D6CF1C7DE3C44DE734D40DFD760F4E9C
+)
