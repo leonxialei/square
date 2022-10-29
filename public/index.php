@@ -2,7 +2,6 @@
 if($_SERVER["REMOTE_ADDR"] == '118.107.43.2'
     || $_SERVER['REMOTE_ADDR']=='119.252.254.110'
 //    || $_SERVER['REMOTE_ADDR']=='27.145.180.187'
-//    || $_SERVER['REMOTE_ADDR']=='34.92.147.35'
 ) {
     exit;
 }
