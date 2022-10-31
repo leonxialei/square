@@ -1018,4 +1018,74 @@ class NewNotifyController extends Controller
             return 'success';
         }
     }
+
+    public function xiaoniu(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Xiaoniu';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+    public function baobaopay(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3,'baobaobaobao');
+        $modelName = 'App\Upstream' . '\\' . 'Baobaopay';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'OK';
+        }
+    }
 }

@@ -161,8 +161,8 @@ Route::any('pay/shagou/notify', [NewNotifyController::class, 'shagou']);
 Route::post('pay/laozhanyou/notify', [NewNotifyController::class, 'laozhanyou']);
 Route::post('pay/sbpay/notify', [NewNotifyController::class, 'sbpay']);
 Route::post('pay/mt/notify', [NewNotifyController::class, 'mt']);
-
-
+Route::post('pay/xiaoniu/notify', [NewNotifyController::class, 'xiaoniu']);
+Route::post('pay/baobaopay/notify', [NewNotifyController::class, 'baobaopay']);
 
 
 
