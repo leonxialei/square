@@ -247,6 +247,7 @@ class PayController extends Controller
             $orderModel->status = 0;
             $orderModel->created = time();
             $orderModel->pay_time = 0;
+            $orderModel->order_time = time();
             $orderModel->save();
             if(!empty($result['data']['payUrl']) || $result['data']['qrImgUrl'] || !empty($result['data']['qrUrl'])) {
                 return [

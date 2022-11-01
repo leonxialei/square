@@ -311,7 +311,7 @@
                             <th>{{sprintf("%.2f",$order->original_amount/100)}}</th>
 
 
-                            <th>{{date('Y-m-d H:i:s', $order->created)}}</th>
+                            <th>{{date('Y-m-d H:i:s', $order->order_time)}}</th>
                             @if(empty($order->pay_time))
                             <th>还未支付</th>
                             @else
