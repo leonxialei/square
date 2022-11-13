@@ -97,7 +97,7 @@
             element = layui.element,
             layer = layui.layer;
 
-        layuimini.init('{{secure_url('init.json')}}');
+        layuimini.init('{{secure_url('init.json')}}?{{time()}}');
 
         $('.login-out').on("click", function () {
             window.location = '{{secure_url('user/logout')}}';

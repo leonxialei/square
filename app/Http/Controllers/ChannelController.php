@@ -15,7 +15,7 @@ class ChannelController extends Controller
 {
    public function index(Request $request) {
        $codeModel = new ChannelCode();
-       $codes = $codeModel->where('status', 1)->get();
+
        $upstreamModel = new Upstream();
        $upstreams = $upstreamModel->where('status', 1)->get();
        $upstreamChannelModel = new UpstreamChannel();
@@ -28,7 +28,7 @@ class ChannelController extends Controller
        $upstreamChannels = $upstreamChannelModel->where('is_disabled', 0)->paginate(15);
        $data = [
            'request' => $request,
-           'codes' => $codes,
+           'code' => $request->get('code'),
            'upstreams' => $upstreams,
            'upstreamChannels' => $upstreamChannels
        ];

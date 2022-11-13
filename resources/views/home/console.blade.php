@@ -47,10 +47,17 @@
                                 <cite>订单管理</cite>
                             </a>
                         </li>
+
                         <li class="layui-col-lg2 layui-col-xs3">
-                            <a href="javascript:;" data-iframe-tab="home/total" data-title="商户提现" data-icon="fa fa-gears">
+                            <a href="javascript:;" data-iframe-tab="merchant/cash" data-title="商户提现" data-icon="fa fa-gears">
                                 <i class="layui-icon layui-icon-dollar"></i>
                                 <cite>商户提现</cite>
+                            </a>
+                        </li>
+                        <li class="layui-col-lg2 layui-col-xs3">
+                            <a href="javascript:;" data-iframe-tab="upstream/advance" data-title="通道预付" data-icon="fa fa-gears">
+                                <i class="layui-icon layui-icon-rmb"></i>
+                                <cite>通道预付</cite>
                             </a>
                         </li>
                         <li class="layui-col-lg2 layui-col-xs3">
@@ -59,12 +66,7 @@
                                 <cite>报表下载</cite>
                             </a>
                         </li>
-                        <li class="layui-col-lg2 layui-col-xs3">
-                            <a lay-href="/platformacctlog/index">
-                                <i class="layui-icon layui-icon-rmb"></i>
-                                <cite>系统积分</cite>
-                            </a>
-                        </li>
+
                     </ul>
 
                 </div>

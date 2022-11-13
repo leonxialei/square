@@ -41,6 +41,10 @@ class PayTestController extends Controller
 
     }
 
+    public function create($merchant_id, $code) {
+
+    }
+
     public function testcreate($param) {
 
         $id = Crypt::decryptString($param);

@@ -35,16 +35,19 @@
                     {
                         "title": "商户管理",
                         "href": "merchant",
+                        "icon": "fa fa-cogs",
                         "target": "_self"
                     },
                     {
                         "title": "商户预付",
                         "href": "advance",
+                        "icon": "fa fa-tags",
                         "target": "_self"
                     },
                     {
                         "title": "商户提现",
-                        "href": "home/total",
+                        "href": "merchant/cash",
+                        "icon": "fa fa-money",
                         "target": "_self"
                     }
                 ]
@@ -56,44 +59,43 @@
                 "target": "_self",
                 "child": [
                     {
+                        "title": "通道管理",
+                        "href": "channel",
+                        "icon": "fa fa-cog",
+                        "target": "_self"
+                    },
+                    {
                         "title": "通道预付",
+                        "icon": "fa fa-credit-card",
                         "href": "upstream/advance",
                         "target": "_self"
                     },
                     {
                         "title": "分配通道",
+                        "icon": "fa fa-exchange",
                         "href": "upstream",
                         "target": "_self"
-                    },
-                    {
-                        "title": "通道整合",
-                        "href": "home/total",
-                        "target": "_self"
                     }
+
                 ]
             }, {
                 "title": "订单查询",
                 "href": "order",
-                "icon": "fa fa-tasks",
+                "icon": "fa fa-desktop",
                 "target": "_self"
             }, {
                 "title": "分析",
                 "href": "order/statistics",
-                "icon": "fa fa-laptop",
+                "icon": "fa fa-pie-chart",
                 "target": "_self"
             },
             {
                 "title": "上游列表",
                 "href": "/list/upstream",
-                "icon": "fa fa-child",
+                "icon": "fa fa-paper-plane",
                 "target": "_self"
             },
                 {
-                "title": "通道管理",
-                "href": "channel",
-                "icon": "fa fa-road",
-                "target": "_self"
-            }, {
                 "title": "编码管理",
                 "href": "channel\/code",
                 "icon": "fa fa-tasks",

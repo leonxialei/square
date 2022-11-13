@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('broadcast')->everyMinute();
         $schedule->command('supplement')->everyMinute();
         $schedule->command('error_report')->everyMinute();
-        $schedule->command('debt_report')->everyFiveMinutes();
+        $schedule->command('debt_report')->everyTenMinutes();
         $schedule->command('channel:refresh')->everyMinute();
         $schedule->command('bot:refresh')->everyMinute();
         $schedule->command('chat:refresh')->dailyAt('21:10');

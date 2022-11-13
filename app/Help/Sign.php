@@ -137,7 +137,7 @@ class Sign {
     public function testEncode($params, $key) {
         $sourceStr = $this->ASCII($params).'&key='.$key;
         echo $sourceStr.'<br>';
-        echostrtoupper(md5($sourceStr));die;
+        echo strtoupper(md5($sourceStr));die;
     }
 
     public function newencode($params, $key) {
@@ -176,5 +176,27 @@ class Sign {
 
 
         return md5($strs.'&key='.$key);
+    }
+
+    public function wusong($params, $key) {
+        if(!empty($params)){
+            $p =  ksort($params);
+            if($p){
+                $str = '';
+                foreach ($params as $k=>$val){
+                    if($val != ''){
+                        $str .= $k .'=' . $val . '&';
+                    }
+                }
+                $strs = rtrim($str, '&');
+            }
+        }
+
+
+
+
+        $sourceStr = $strs.'&secretKey='.strtoupper($key);
+
+        return strtoupper(md5($sourceStr));
     }
 }

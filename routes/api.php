@@ -163,7 +163,23 @@ Route::post('pay/sbpay/notify', [NewNotifyController::class, 'sbpay']);
 Route::post('pay/mt/notify', [NewNotifyController::class, 'mt']);
 Route::post('pay/xiaoniu/notify', [NewNotifyController::class, 'xiaoniu']);
 Route::post('pay/baobaopay/notify', [NewNotifyController::class, 'baobaopay']);
-
+Route::post('pay/mt2/notify', [NewNotifyController::class, 'mt2']);
+Route::post('pay/sanwu/notify', [NewNotifyController::class, 'sanwu']);
+Route::post('pay/ange/notify', [NewNotifyController::class, 'ange']);
+Route::post('pay/kami6/notify', [NewNotifyController::class, 'kami6']);
+Route::post('pay/xgdsg/notify', [NewNotifyController::class, 'xgdsg']);
+Route::get('pay/wuming/notify', [NewNotifyController::class, 'wuming']);
+Route::any('pay/mayikami/notify', [NewNotifyController::class, 'mayikami']);
+Route::post('pay/beizi/notify', [NewNotifyController::class, 'beizi']);
+Route::post('pay/tianyi/notify', [NewNotifyController::class, 'tianyi']);
+Route::post('pay/bolin/notify', [NewNotifyController::class, 'bolin']);
+Route::post('pay/juzhong/notify', [NewNotifyController::class, 'juzhong']);
+Route::post('pay/nike/notify', [NewNotifyController::class, 'nike']);
+Route::get('pay/wusong/notify', [NewNotifyController::class, 'wusong']);
+Route::any('pay/fczf/notify', [NewNotifyController::class, 'fczf']);
+Route::post('pay/shengshi/notify', [NewNotifyController::class, 'shengshi']);
+Route::post('pay/mayikami2/notify', [NewNotifyController::class, 'mayikami2']);
+Route::post('pay/acpay/notify', [NewNotifyController::class, 'acpay']);
 
 
 

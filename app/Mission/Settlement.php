@@ -265,7 +265,12 @@ class Settlement {
         $start_date = date('Y-m-d',strtotime('-1 day'));
 
         $end_date = $start_date;
-
+        $type = 1;
+        if(strpos($row,'+') !== false) {
+            $type = 1;
+        } elseif(strpos($row,'-') !== false) {
+            $type = 2;
+        }
 
 
         $merchantModel = new Merchant();
@@ -277,12 +282,7 @@ class Settlement {
         $advanceModel->merchant_id = $merchant->id;
         $advanceModel->amount = abs($row)*100;
         $advanceModel->user_id = 1;
-        $type = 1;
-        if(strpos($row,'+') !== false) {
-            $type = 1;
-        } elseif(strpos($row,'-') !== false) {
-            $type = 2;
-        }
+
         $advanceModel->type = $type;
         $advanceModel->recharge_time = time();
         $advanceModel->balance = ($merchant->balance/100 + $row)*100;
@@ -306,8 +306,8 @@ class Settlement {
         $orderLogModel = new OrderLog();
         $orderLogModel->merchant_id = $merchant->id;
         $orderLogModel->attribute = 2;
-        $orderLogModel->type = 1;
-        $orderLogModel->amount = $row*100;
+        $orderLogModel->type = $type;
+        $orderLogModel->amount = abs($row)*100;
         $orderLogModel->before_balance = ($balance - $row) * 100;
         $orderLogModel->balance = $balance * 100;
         $orderLogModel->note = '宇宙机器人入账';

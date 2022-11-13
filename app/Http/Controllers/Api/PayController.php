@@ -59,12 +59,12 @@ class PayController extends Controller
         $signObj = new Sign();
         $sign = $signObj->encode($request, $merchant->token);
 
-//        if($sign != $cliSign) {
-//            return [
-//                'status' => '30003',
-//                'msg' => '签名错误'
-//            ];
-//        }
+        if($sign != $cliSign) {
+            return [
+                'status' => '30003',
+                'msg' => '签名错误'
+            ];
+        }
 
 
 
@@ -189,7 +189,7 @@ class PayController extends Controller
             }
 
         }
-        dd($merchantChannel->toArray());
+
         $count = Count::getCount();
         $orderNo = rand(1, 99).date('dsi').$count. rand(10, 99);
         Count::plus();
@@ -247,6 +247,7 @@ class PayController extends Controller
             $orderModel->status = 0;
             $orderModel->created = time();
             $orderModel->pay_time = 0;
+            $orderModel->order_time = time();
             $orderModel->save();
             if(!empty($result['data']['payUrl']) || $result['data']['qrImgUrl'] || !empty($result['data']['qrUrl'])) {
                 return [

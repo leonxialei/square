@@ -41,6 +41,9 @@ Route::middleware([UserAccount::class])->group(function () {
     Route::get('/user/change/password', [UserController::class, 'changePassword']);
     Route::post('/user/change/password', [UserController::class, 'storePassword']);
     Route::get('/order/statistics', [OrderController::class, 'statistics']);
+    Route::get('/merchant/cash', [MerchantController::class, 'cash']);
+    Route::get('/merchant/cash/{id}', [MerchantController::class, 'detail']);
+    Route::post('/merchant/cash/{id}', [MerchantController::class, 'store_cash']);
     Route::get('/export/order', [ExportController::class, 'order']);
     Route::get('/export/today', [ExportController::class, 'today']);
     Route::get('/home/console', [HomeController::class, 'console']);

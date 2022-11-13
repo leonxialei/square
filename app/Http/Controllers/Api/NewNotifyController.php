@@ -1088,4 +1088,659 @@ class NewNotifyController extends Controller
             return 'OK';
         }
     }
+
+    public function mt2(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Mt2';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function sanwu(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Sanwu';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'SUCCESS';
+        }
+    }
+
+    public function ange(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Ange';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function kami6(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Kami6';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function xgdsg(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Xgdsg';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function wuming(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Wuming';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function mayikami(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3,'mayimayimayi');
+        $modelName = 'App\Upstream' . '\\' . 'Mayikami';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function beizi(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Beizi';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function tianyi(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Tianyi';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'SUCCESS';
+        }
+    }
+
+    public function bolin(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Bolin';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'OK';
+        }
+    }
+
+    public function juzhong(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Juzhong';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'SUCCESS';
+        }
+    }
+    public function nike(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3, 'nikenike');
+        $modelName = 'App\Upstream' . '\\' . 'Nike';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+            $balance = $res->upstream->balance - $res->amount;
+            $upstreamModel = new Upstream();
+            $upstreamModel->where('id', $res->upstream_id)->update([
+                'balance' => $balance
+            ]);
+
+
+            $mbalance = $res->customer->balance - $res->merchant_amount;
+            $merchantModel = new Merchant();
+            $merchantModel->where('id', $res->customer->id)->update([
+                'balance' => $mbalance
+            ]);
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function wusong(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3, 'nikenike');
+        $modelName = 'App\Upstream' . '\\' . 'Wusong';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+            $balance = $res->upstream->balance - $res->amount;
+            $upstreamModel = new Upstream();
+            $upstreamModel->where('id', $res->upstream_id)->update([
+                'balance' => $balance
+            ]);
+
+
+            $mbalance = $res->customer->balance - $res->merchant_amount;
+            $merchantModel = new Merchant();
+            $merchantModel->where('id', $res->customer->id)->update([
+                'balance' => $mbalance
+            ]);
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'SUCCESS';
+        }
+    }
+
+    public function fczf(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3, 'fczffczf');
+        $modelName = 'App\Upstream' . '\\' . 'Fczf';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+            $balance = $res->upstream->balance - $res->amount;
+            $upstreamModel = new Upstream();
+            $upstreamModel->where('id', $res->upstream_id)->update([
+                'balance' => $balance
+            ]);
+
+
+            $mbalance = $res->customer->balance - $res->merchant_amount;
+            $merchantModel = new Merchant();
+            $merchantModel->where('id', $res->customer->id)->update([
+                'balance' => $mbalance
+            ]);
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function shengshi(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+        $modelName = 'App\Upstream' . '\\' . 'Shengshi';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function mayikami2(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3, 'nikenike');
+        $modelName = 'App\Upstream' . '\\' . 'Mayikami2';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+            $balance = $res->upstream->balance - $res->amount;
+            $upstreamModel = new Upstream();
+            $upstreamModel->where('id', $res->upstream_id)->update([
+                'balance' => $balance
+            ]);
+
+
+            $mbalance = $res->customer->balance - $res->merchant_amount;
+            $merchantModel = new Merchant();
+            $merchantModel->where('id', $res->customer->id)->update([
+                'balance' => $mbalance
+            ]);
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'success';
+        }
+    }
+
+    public function acpay(Request $request)
+    {
+//        $upstreamModel = new Upstream();
+//        $upstream = $upstreamModel->where('ip', $_SERVER['REMOTE_ADDR'])->first();
+//        if(empty($upstream)) {
+//            return [
+//                'status' => '30009',
+//                'msg' => 'IP restrictions'
+//            ];
+//        }
+//        $modelName = 'App\Upstream'.'\\'.ucfirst($upstream->en_name);
+//        error_log(print_r($request->all(),1),3, 'nikenike');
+        $modelName = 'App\Upstream' . '\\' . 'Acpay';
+        $model = new $modelName;
+        $res = $model->notify($request);
+        if (isset($res['status']) && $res['status'] == 30003) {
+            return [
+                'status' => '30003',
+                'msg' => 'Signature error'
+            ];
+        }
+        if ($res && $res->status != 2) {
+            $balance = $res->upstream->balance - $res->amount;
+            $upstreamModel = new Upstream();
+            $upstreamModel->where('id', $res->upstream_id)->update([
+                'balance' => $balance
+            ]);
+
+
+            $mbalance = $res->customer->balance - $res->merchant_amount;
+            $merchantModel = new Merchant();
+            $merchantModel->where('id', $res->customer->id)->update([
+                'balance' => $mbalance
+            ]);
+
+
+            $data = json_encode([
+                'number' => 5,
+                'order_id' => $res->id
+            ]);
+            Redis::rpush('feedback_pool', $data);
+
+
+            return 'OK';
+        }
+    }
 }

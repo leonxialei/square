@@ -113,19 +113,9 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">通道</label>
                             <div class="layui-input-inline">
-                                <select type="text" name="code" class="layui-input">
-                                    <option value="">请选择</option>
-                                    @foreach($codes as $code)
-                                        @if($request->get('code') == $code->code)
-                                    <option
-                                        selected="selected"
-                                        value="{{$code->code}}" >{{$code->name}}</option>
-                                        @else
-                                    <option
-                                        value="{{$code->code}}" >{{$code->name}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+
+                                <input type="text" value="{{$code}}" name="code"  class="layui-input" placeholder="平台通道码" />
+
                             </div>
                         </div>
 

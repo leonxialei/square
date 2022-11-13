@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MerchantAdvance;
+use App\Models\OrderLog;
+use App\Models\TakeCash;
+use App\Models\TelegramBookkeeping;
+use App\Models\TelegramMerchant;
 use Illuminate\Http\Request;
 use App\Models\Merchant;
 use Illuminate\Support\Str;
@@ -110,6 +115,143 @@ class MerchantController extends Controller
         parent.location.reload();
         </script>
         JS;
+        return $js;
+    }
+
+    public function cash(Request $request) {
+        if(empty($request->get('start_time'))) {
+            $start_time = strtotime(date('Y-m-d').' 00:00:00');
+        } else {
+            $start_time = strtotime($request->get('start_time'));
+        }
+        if(empty($request->get('end_time'))) {
+            $end_time = strtotime(date('Y-m-d').' 23:59:59');
+        } else {
+            $end_time = strtotime($request->get('end_time'));
+        }
+        $cashModel = new TakeCash();
+        $cashModel = $cashModel
+            ->where('created', '>=', $start_time)
+            ->where('created', '<=', $end_time);
+        $status = $request->get('status');
+        if($status != '') {
+            $cashModel->where('status', $status);
+        } else {
+            $status = 2;
+        }
+        $cashs = $cashModel->paginate(25);
+        $data = [
+            'start_time' => $start_time,
+            'end_time' => $end_time,
+            'cashs' => $cashs,
+            'status' => $status
+        ];
+        return View('merchant/cash', $data);
+    }
+
+    public function detail($id) {
+        $cashModel = new TakeCash();
+
+        $cash = $cashModel->where('id', $id)->first();
+        $data = [
+
+            'cash' => $cash
+        ];
+        return View('merchant/cashDetail', $data);
+    }
+
+    public function store_cash(Request $request, $id) {
+        $cashModel = new TakeCash();
+
+        $cash = $cashModel->where('id', $id)->first();
+        if(empty($cash)) {
+            $js = <<<JS
+                <script>
+                alert('非法操作！');
+                parent.location.reload();
+                </script>
+                JS;
+            return $js;
+        }
+        if($cash->amount != $request->get('take_amount')*100) {
+            $js = <<<JS
+                <script>
+                alert('提现金额不一致！');
+                parent.location.reload();
+                </script>
+                JS;
+            return $js;
+        }
+        $merchantModel = new Merchant();
+        $merchant = $merchantModel->where('id', $cash->merchant_id)->first();
+        $tMerchantModel = new TelegramMerchant();
+        $tMerchant = $tMerchantModel->where('customer_id', $cash->merchant_id)
+            ->where('type', 2)->first();
+
+
+        if(!empty($tMerchant)) {
+            $bookkeepingModel = new TelegramBookkeeping();
+
+            $bookkeepingModel->chat_id = $tMerchant->chat_id;
+            $bookkeepingModel->customer_id = $tMerchant->customer_id;
+            $bookkeepingModel->type = $tMerchant->type;
+            $bookkeepingModel->genre = 1;
+            $bookkeepingModel->amount = $cash->amount;
+            $bookkeepingModel->name = '提现';
+
+            $bookkeepingModel->note = '用户提现';
+            $bookkeepingModel->created = time();
+            $bookkeepingModel->save();
+        }
+
+        $start_time = date('Y-m-d');
+        $balance = $merchant->advance($merchant->id, $start_time, $start_time);
+
+
+
+
+
+        $advanceModel = new MerchantAdvance();
+        $advanceModel->merchant_id = $merchant->id;
+        $advanceModel->amount = abs($cash->amount);
+        $advanceModel->user_id = 1;
+        $type = 1;
+        if(strpos($cash->amount,'+') !== false) {
+            $type = 1;
+        } elseif(strpos($cash->amount,'-') !== false) {
+            $type = 2;
+        }
+        $advanceModel->type = $type;
+        $advanceModel->recharge_time = time();
+        $advanceModel->balance = ($merchant->balance + $cash->amount);
+
+        $advanceModel->created = time();
+        $advanceModel->save();
+
+
+
+
+        $orderLogModel = new OrderLog();
+        $orderLogModel->merchant_id = $cash->merchant_id;
+        $orderLogModel->attribute = 2;
+        $orderLogModel->type = $type;
+        $orderLogModel->amount = $cash->amount;
+        $orderLogModel->before_balance = $balance - $cash->amount;
+        $orderLogModel->balance = $balance;
+        $orderLogModel->note = '用户提现';
+        $orderLogModel->created = time();
+        $orderLogModel->save();
+        $cashModel->where('id', $id)->update([
+            'take_amount' => $request->get('take_amount')*100,
+            'status' => 1,
+            'allow_time' => time()
+        ]);
+        $js = <<<JS
+                <script>
+                alert('批复成功！');
+                parent.location.reload();
+                </script>
+                JS;
         return $js;
     }
 

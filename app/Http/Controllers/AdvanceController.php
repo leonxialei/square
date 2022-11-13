@@ -112,9 +112,9 @@ class AdvanceController extends Controller
         $orderLogModel->type = $request->get('type');
         $orderLogModel->amount = $request->get('amount')*100;
         if($request->get('type') == 1) {
-            $orderLogModel->before_balance = $balance - ($request->get('amount')*100);
-        } elseif($request->get('type') == 2) {
             $orderLogModel->before_balance = $balance + ($request->get('amount')*100);
+        } elseif($request->get('type') == 2) {
+            $orderLogModel->before_balance = $balance - ($request->get('amount')*100);
         }
 
         $orderLogModel->balance = $balance;
